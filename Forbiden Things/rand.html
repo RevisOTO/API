@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1 class="font">Sorteo intercambio de regalos</h1>
+  <br>
+    <label
+      class="font">Quien sos?:</label>
+    <select id="tontos">
+      <option id="Rene" value="Rene">Rene</option>
+      <option id="Rafa" value="Rafa">Rafa</option>
+      <option id ="Martin" value="Martin">Martin</option>
+      <option id="Luis" value="Luis">Luis</option>
+      <option id="Cameron" value="Cameron">Cameron</option>
+      <option id="Jon" value="Jonathan">Jonathan</option>
+      <option id="Soto" value="Soto">Soto</option>
+      <option id="Rogelio" value="Rogelio">Rogelio</option>
+      <option id="Jordan" value="Jordan">Jordan</option>
+      <option id="Josue" value="Josue">Josue</option>
+    </select>
+    <br><br>
+    <button id="submit"> Rolear! </button>
+  <h2 class="font">Tu regalo sera para:</h2>
+  <input id="persona" type="text">
+  
+  <script>
+    sos = "Rene"
+    document.getElementById("tontos").addEventListener("change", function () {
+      e = document.getElementById("tontos");
+      var value = e.value;
+      sos = e.options[e.selectedIndex].text;
+    })
+
+    
+    document.getElementById("submit").addEventListener("click", async function() {
+      getFetch();
+    })
+
+        async function getFetch(){
+          let bodyContent = JSON.stringify({
+            "santa": sos
+          });
+
+          let response = await fetch("https://unserver.revis8466.repl.co/rand", { 
+            method: "POST",
+            body: bodyContent
+          });
+          
+          data = await response.json();
+          
+          while (sos == data.Nombre){
+            let response = await fetch("https://unserver.revis8466.repl.co/rand", { 
+            method: "POST",
+            body: bodyContent
+            });
+            console.log("Este no es " + data.Nombre)
+            data = await response.json();
+            
+          }       
+          document.getElementById("persona").value = data.Nombre
+          
+          document.getElementById(sos)
+          console.log(data);
+        }
+  </script>
+  
+  <style>
+    html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+.font{
+  color:white;
+}
+  </style>
+</body>
+
+</html>

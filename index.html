@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Api de Memes Feos</title>
+</head>
+<body>
+  <main id="cont">
+        <nav id="sidemenu" class="close">
+      <div id="offset"></div>
+      <div id="logo"> <a class="fontNav" href="/"><img id="logoimg" src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_sad_frog.png" alt="error" height="30px">MemeApi</a></div>
+      <div class="navitem" id="img"><a class="fontNav" href="/">Imagen</a></div>
+      <div class="navitem" id="vid"><a class="fontNav" href="/Video">Video</a></div>
+      <div class="navitem" id="documentation"><a class="fontNav" href="/docs">Documentación</a></div>
+      <div class="navitem" id="create"><a class="fontNav" href="/post">Subir</a></div>
+      <div class="navitem" id="update"><a class="fontNav" href="/update">Actualizar</a></div>
+    </nav>
+    <div id="icono"><i class="fa-solid fa-bars"></i></div>  
+    
+    <nav id="topmenu">
+      <div id="logo"> <a class="fontNav" href="/"><img id="logoimg" src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_sad_frog.png" alt="error" height="30px">MemeApi</a></div>
+      <div class="navitem" id="img"><a class="fontNav" href="/">Imagen</a></div>
+      <div class="navitem" id="vid"><a class="fontNav" href="/Video">Video</a></div>
+      <div class="navitem" id="documentation"><a class="fontNav" href="/docs">Documentación</a></div>
+      <div class="navitem" id="post"><a class="fontNav" href="/post">Subir</a></div>
+      <div class="navitem" id="update"><a class="fontNav" href="/update">Actualizar</a></div>
+    </nav>
+    
+    <h2 class="title">Toma! Un meme aleatorio</h2>
+    <br>
+    <section id="cont2">
+      <div class="centerFlex">
+        <img id="momo" src="" alt="" width="350px" height="350px">
+        <br>
+        <button id="btn" class="bn632-hover bn26">Otro meme</button>
+        <br>
+        <br>
+        <br>
+      </div>
+    </section>
+  </main>
+<footer>
+  <a href="https://github.com/RevisOTO/mosquedapi" class="fontFoot">Rafael Mosqueda Barragán 19100223</a>
+</footer>
+</body>
+</html>
+
+<script src="https://kit.fontawesome.com/663c7c0134.js" crossorigin="anonymous"></script>
+<!-- Fetch Things -->
+<script>
+  
+document.getElementById("icono").addEventListener("click", function () {
+  sidebar = document.getElementById("sidemenu");
+
+  if (sidebar.className == "close") {
+  sidebar.className = "open"
+  sidebar.style.left = 0
+  } else {
+  sidebar.className = "close"
+  sidebar.style.left = -160
+  }
+})
+  
+document.getElementById("btn").addEventListener("click",function () {
+  fetch("https://unserver.revis8466.repl.co/momorandom")
+    .then(momo => momo.json())
+    .then(res => {
+      console.log(res.url)
+      document.getElementById("momo").src = res.url
+    })
+})
+  
+  fetch("https://unserver.revis8466.repl.co/momorandom")
+    .then(momo => momo.json())
+    .then(res => {
+      console.log(res.url)
+      document.getElementById("momo").src = res.url
+    })
+</script>

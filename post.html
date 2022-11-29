@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="post.css">
+  <title>Api de Memes Feos</title>
+</head>
+<body>
+  <main id="cont">
+        <nav id="sidemenu" class="close">
+      <div id="offset"></div>
+      <div id="logo"> <a class="fontNav" href="/"><img id="logoimg" src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_sad_frog.png" alt="error" height="30px">MemeApi</a></div>
+      <div class="navitem" id="img"><a class="fontNav" href="/">Imagen</a></div>
+      <div class="navitem" id="vid"><a class="fontNav" href="/Video">Video</a></div>
+      <div class="navitem" id="documentation"><a class="fontNav" href="/docs">Documentación</a></div>
+      <div class="navitem" id="create"><a class="fontNav" href="/post">Subir</a></div>
+      <div class="navitem" id="update"><a class="fontNav" href="/update">Actualizar</a></div>
+    </nav>
+    <div id="icono"><i class="fa-solid fa-bars"></i></div>  
+    
+    <nav id="topmenu">
+      <div id="logo"> <a class="fontNav" href="/"><img id="logoimg" src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_sad_frog.png" alt="error" height="30px">MemeApi</a></div>
+      <div class="navitem" id="img"><a class="fontNav" href="/">Imagen</a></div>
+      <div class="navitem" id="vid"><a class="fontNav" href="/Video">Video</a></div>
+      <div class="navitem" id="documentation"><a class="fontNav" href="/docs">Documentación</a></div>
+      <div class="navitem" id="post"><a class="fontNav" href="/post">Subir</a></div>
+      <div class="navitem" id="update"><a class="fontNav" href="/update">Actualizar</a></div>
+    </nav>
+    
+    <h2 class="title">Sube tu propio meme!</h2>
+    <section id="cont2Post">
+      <img id="img1" src="https://images.uncyclomedia.co/inciclopedia/es/2/26/-Inserte_t%C3%ADtulo_aqu%C3%AD-.PNG" alt="">
+    </section>
+    <div id ="cont2Post">
+      <label for="type" class="title"> ¿Imagen o Video? 
+        <select name="type" id="cmbTipo">
+          <option value="Imagen">Imagen</option>
+          <option value="Video">Video</option>
+        </select>
+      </label>
+    </div>
+    
+    <div id="cont2Post">
+      <label class="title" for="desc"> Descripcion corta del meme
+        <input id="desc" name="desc" type="text">
+      </label>
+    </div>
+    <div id="cont2Post">
+      <label class="title" for="url"> URL de tu meme
+        <input id="url" name="url" type="text">
+      </label>
+      <br>
+      <button id="post" onclick="post()" class="bn632-hover bn26">POST</button>
+    </div>
+  </main>
+<footer>
+  <a href="https://github.com/RevisOTO/mosquedapi" class="fontFoot">Rafael Mosqueda Barragán 19100223</a>
+</footer>
+</body>
+</html>
+
+<script>
+async function post() {
+  url = document.getElementById("url").value
+  desc = document.getElementById("desc").value
+
+  let bodyContent = JSON.stringify({
+    "descripcion": desc,
+    "url": url
+  });
+
+  let promise = await fetch("https://unserver.revis8466.repl.co/validate", {
+    method: "POST",
+    body: bodyContent,
+  })
+
+  let is_Image = await promise.json();
+
+  console.log(is_Image)
+  
+  if (!is_Image || desc == undefined || desc == "") {
+    document.getElementById("url").value = "Esto no es una imagen"
+    return
+  }
+
+  document.getElementById("img1").src = url
+
+  let headersList = {
+    "Content-Type": "application/json"
+  }
+
+
+
+  let response = await fetch("https://unserver.revis8466.repl.co/post", {
+    method: "POST",
+    body: bodyContent,
+    headers: headersList
+  });
+
+  let data = await response.text();
+  console.log(data);
+}
+</script>
+
+<script src="https://kit.fontawesome.com/663c7c0134.js" crossorigin="anonymous"></script>

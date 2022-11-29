@@ -1,0 +1,14 @@
+{
+  "Nombres":[
+    {"Nombre":"Rene","status":"Disponible"},
+    {"Nombre":"Rafa","status":"Disponible"}, 
+    {"Nombre":"Martin","status":"Disponible"}, 
+    {"Nombre":"Soto","status":"Disponible"}, 
+    {"Nombre":"Luis","status":"Disponible"}, 
+    {"Nombre":"Cameron","status":"Disponible"},
+    {"Nombre":"Jordan","status":"Disponible"}, 
+    {"Nombre":"Josue","status":"Disponible"}, 
+    {"Nombre":"Jonathan","status":"Disponible"},
+    {"Nombre":"Rogelio","status":"Disponible"}
+  ]
+}
