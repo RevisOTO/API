@@ -46,7 +46,7 @@ const grid = new gridjs.Grid({
             "descripcion": descripcion
           });
 
-          let response = await fetch("https://UNSERVER.revis8466.repl.co/editar", {
+          let response = await fetch("https://UNSERVER.revis8466.repl.co/eliminar", {
             method: "DELETE",
             body: bodyContent,
             headers: headersList
@@ -122,7 +122,7 @@ const grid1 = new gridjs.Grid({
             "descripcion": descripcion
           });
 
-          let response = await fetch("https://UNSERVER.revis8466.repl.co/editar", {
+          let response = await fetch("https://UNSERVER.revis8466.repl.co/eliminarvideo", {
             method: "DELETE",
             body: bodyContent,
             headers: headersList

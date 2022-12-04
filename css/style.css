@@ -75,6 +75,11 @@ html{
   display:none;
 }
 
+.docDiv{
+  display: flex;
+  text-align: center;
+}
+
 .navitem{
   padding:20px;
 }
@@ -90,8 +95,9 @@ html{
   margin-left:30%;
 }
 
-h2{
+p,h2,h1{
   text-align: center;
+  color: gray;
 }
 .navitem:hover{
   background-color:gray;
@@ -108,11 +114,12 @@ a{
 
 .fontFoot{
   color: white;
-  font-weight: 50;
+  font-weight: 800;
+  
 }
 footer{
   background-color: #121212;
-  padding-bottom:12%;
+  height:22vh;
   display:flex;
   justify-content: center;
   align-items: center;

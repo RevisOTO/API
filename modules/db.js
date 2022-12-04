@@ -14,6 +14,7 @@ async function getAllMemes(table) {
       select
         *
       from memes
+      order by id
     `
   }
   else {
@@ -21,6 +22,7 @@ async function getAllMemes(table) {
       select
         *
       from videomeme
+      order by id
     `
   }
 

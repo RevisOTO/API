@@ -1,0 +1,49 @@
+.method{
+  border-radius: 20px;
+  background-color:#4f4f4f;
+  
+  font-weight: bolder;
+  font-size: 19px;
+  color: #32c5f5;
+  background-color: #121212;
+  width:70px;
+  height:25px;
+  text-align: center;
+}
+
+.bold{
+  font-weight: bolder;
+}
+
+#urls{
+  background-color: #121212;
+  width: 700px;
+  border-radius: 20px;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  margin-top: 20px;
+}
+
+#urls a:visited{
+  color: #00d100;
+}
+
+#docs{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rutas{
+  display:flex;
+  margin-top: 20px;
+}
+
+l{
+  
+}
